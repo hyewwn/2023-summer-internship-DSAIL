@@ -8,11 +8,11 @@
 2. Show how it can be motivated from a first-order approximation of spectral graph convolutions.
 3. Demonstrate how this form of a graph-based neural network model can be used for fast and scalable semi-supervised classification of nodes in a graph.
 
-## Fast Approximate convolutions on graphs
+## Fast approximate convolutions on graphs
 이 논문에서 제시하고 있는 multi-layer Graph Convolutional Network는 다음과 같은 layer-wise propagation rule을 따른다.
 
 $$
 H^{l+1} = \sigma(\tilde{D}^{-1/2}\tilde{A}\tilde{D}^{-1/2}H^{(l)}W^{(l)})
 $$
 
-이때, 인접행렬 $\tilde{A} = A+I_{N}$은 인접행렬에 identity matrix를 더해줌으로써
+이때, 인접행렬 $\tilde{A} = A+I_{N}$은 인접행렬에 identity matrix를 더해줌으로써 self-loop를 추가하여 각 노드가 자기 자신의 정보를 포함하여 학습할 수 있도록 하였으며, 이에 따라 $$\tilde{D}_{ii} = \sum_j\tilde{A}_{ij}$$로 degree matrix가 변화한다.
