@@ -46,13 +46,16 @@ Neighborhood model들은 매우 localized한 relationship을 찾는데 가장 �
 
 - To reduce computational cost, only use $k$ neighbor's information
 - Optimization
+  
   <img width="431" alt="image" src="https://github.com/hyewwn/2023-summer-internship-DSAIL/assets/74613565/a6f16ec2-1b7a-48e9-9f10-da1c9ad2f26c">
 
 ## Latent factor models
 가장 기본적인 Latent factor model은 다음과 같다.
 - Prediction
+  
   <img width="125" alt="image" src="https://github.com/hyewwn/2023-summer-internship-DSAIL/assets/74613565/4bb2025a-02bb-47e8-b3bc-2f602104842e">
 - Optimizaiton
+  
   <img width="450" alt="image" src="https://github.com/hyewwn/2023-summer-internship-DSAIL/assets/74613565/2349ec79-fdf2-4590-980d-b39c2ef8c223">
 
 이를 기반으로 Paterek은 NSVD 모델을 제안하는데, 이는 user parameter를 포함하지 않는다는 특징을 가지고 있다. 이를 통해 새로운 유저에 대해서도 추가적인 학습 과정 없이 추천이 가능하다는 장점을 갖는다. Paterek의 모델은 다음과 같다.
@@ -76,6 +79,7 @@ Latent-factor 모델 중에서는 SVD++ 모델이 가장 좋은 성능을 보였
 
 ## An intergrated model
 - integrate neighborhood model and SVD++ model
+  
   <img width="439" alt="image" src="https://github.com/hyewwn/2023-summer-internship-DSAIL/assets/74613565/c08a3722-27f8-41af-bd68-548b03372b47">
 
 - 최종적으로 가장 높은 성능을 달성하였다.
