@@ -33,7 +33,51 @@ Neighborhood model들은 매우 localized한 relationship을 찾는데 가장 �
 ### Model2)
 <img width="380" alt="image" src="https://github.com/hyewwn/2023-summer-internship-DSAIL/assets/74613565/88d7bfcd-dab5-4930-9230-74922074016b">
 
-- 
+- include implicit feedback
+
+### Model3)
+<img width="404" alt="image" src="https://github.com/hyewwn/2023-summer-internship-DSAIL/assets/74613565/f37ed1ba-c317-4a46-b428-9b973690cc97">
+
+- In model2, predictions by users, who have many ratings, become far from baseline
+- In model3, terms are divided by $R(u)$ and $N(u)$ to make regularization effect
+
+### Model4) -> Final Neighborhood Model
+<img width="430" alt="image" src="https://github.com/hyewwn/2023-summer-internship-DSAIL/assets/74613565/af27dd20-0e29-4bc8-8d17-67d53d911563">
+
+- To reduce computational cost, only use $k$ neighbor's information
+- Optimization
+  <img width="431" alt="image" src="https://github.com/hyewwn/2023-summer-internship-DSAIL/assets/74613565/a6f16ec2-1b7a-48e9-9f10-da1c9ad2f26c">
+
+## Latent factor models
+가장 기본적인 Latent factor model은 다음과 같다.
+- Prediction
+  <img width="125" alt="image" src="https://github.com/hyewwn/2023-summer-internship-DSAIL/assets/74613565/4bb2025a-02bb-47e8-b3bc-2f602104842e">
+- Optimizaiton
+  <img width="450" alt="image" src="https://github.com/hyewwn/2023-summer-internship-DSAIL/assets/74613565/2349ec79-fdf2-4590-980d-b39c2ef8c223">
+
+이를 기반으로 Paterek은 NSVD 모델을 제안하는데, 이는 user parameter를 포함하지 않는다는 특징을 가지고 있다. 이를 통해 새로운 유저에 대해서도 추가적인 학습 과정 없이 추천이 가능하다는 장점을 갖는다. Paterek의 모델은 다음과 같다.
+
+<img width="272" alt="image" src="https://github.com/hyewwn/2023-summer-internship-DSAIL/assets/74613565/74257a0f-3d9c-4b17-9f73-f2b1a4770f3c">
+
+이어지는 모델은 위 두 모델의 형태를 기반으로 한다.
+
+### Model1) (Asymmetric SVD)
+<img width="330" alt="image" src="https://github.com/hyewwn/2023-summer-internship-DSAIL/assets/74613565/9c107f3b-dcf3-4a72-aaab-b91cc25179bc">
+
+- include implicit feedback
+
+### Model2) (SVD++) 
+<img width="298" alt="image" src="https://github.com/hyewwn/2023-summer-internship-DSAIL/assets/74613565/9aed36d9-4d65-4b94-b79b-df4942567be7">
+
+- include user parameter again (trained by explicit feedback)
+- only use implicit feedback term
+
+Latent-factor 모델 중에서는 SVD++ 모델이 가장 좋은 성능을 보였다. 그러나, user parameter의 추가로 인해 Asymmetric SVD에서 얻을 수 있는 장점들을 잃어버렸다.
+
+## An intergrated model
+- integrate neighborhood model and SVD++ model
+  <img width="439" alt="image" src="https://github.com/hyewwn/2023-summer-internship-DSAIL/assets/74613565/c08a3722-27f8-41af-bd68-548b03372b47">
+
+- 최종적으로 가장 높은 성능을 달성하였다.
 
 
-# Matrix Factorization Techniques for Recommender Systems
